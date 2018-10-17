@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PrintRequestInfo>
+
+    <ePOSPrint><Parameter><devid>local_printer</devid><timeout>10000</timeout></Parameter><PrintData><epos-print xmlns="http://www.epson-pos.com/schemas/2011/03/epos-print"><text align="left"/><text>normal text&#10;</text><text align="center"/><text>centered text&#10;</text><cut type="feed"/><text align="right"/><text>right text&#10;</text><text align="left"/><text>Dollar $ 23.12, Euro 23.12 €, Pound £ 12.23&#10;</text><text align="left"/><text reverse="false" ul="false" em="true"/><text>bold text&#10;</text><text reverse="false" ul="false" em="false"/><text>Custom separator (x)&#10;</text><text>/!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\
+
+        &#10;</text><text width="2" height="2"/><text>double line text&#10;</text><text align="center"/><text>double line center&#10;</text><text align="right"/><text>double line right&#10;</text><text align="left"/><text width="1" height="1"/><barcode type="code39" hri="none" font="font_a" width="2" height="60">12345678</barcode><barcode type="code39" hri="none" font="font_a" width="2" height="60">123456789</barcode><text>This in inverted text
+        &#10;</text><text>This in underlined text
+        &#10;</text><text width="2" height="2"/><text>Total:&#10;</text><text>20.55&#10;</text><text width="1" height="1"/><cut type="feed"/></epos-print></PrintData></ePOSPrint>
+
+</PrintRequestInfo>
+
+
+

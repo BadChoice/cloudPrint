@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PrintRequestInfo Version="3.00">
+
+  <ePOSDisplay>
+    <Parameter>
+      <devid>local_display</devid>
+      <timeout>10000</timeout>
+      <printjobid>ABC123</printjobid>
+    </Parameter>
+    <DisplayData>
+      <epos-display xmlns="http://www.epson-pos.com/schemas/2012/09/epos-display">
+        <reset />
+        <text>Hello Direct Print!</text>
+      </epos-display>
+    </DisplayData>
+  </ePOSDisplay>
+
+</PrintRequestInfo>
+
+
+

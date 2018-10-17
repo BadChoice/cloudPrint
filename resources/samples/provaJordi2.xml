@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<PrintRequestInfo>
+<ePOSPrint>
+    <Parameter>
+        <devid>local_printer</devid>
+        <timeout>10000</timeout>
+    </Parameter>
+    <PrintData>
+        <epos-print xmlns="http://www.epson-pos.com/schemas/2011/03/epos-print">
+            <text lang="en"/>
+            <text smooth="true"/>
+            <text align="left"/>
+            <text>normal text</text>
+            <text align="center"/>
+            <text>centered text</text>
+            <cut type="feed"/>
+            <text align="right"/>
+            <text>right text</text>
+            <text align="left"/>
+            <text>Dollar $ 23.12, Euro 23.12 &#x20AC;, Pound &#xA3; 12.23</text>
+            <text align="left"/>
+            <text reverse="false" ul="false" em="true"/>
+            <text>bold text</text>
+            <text reverse="false" ul="false" em="false"/>
+            <text>Custom separator (x)</text>
+            <text>/!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\
+
+            </text>
+            <text width="2" height="2"/>
+            <text>double line text</text>
+            <text align="center"/>
+            <text>double line center</text>
+            <text align="right"/>
+            <text>double line right</text>
+            <text align="left"/>
+            <text width="1" height="1"/>
+            <barcode type="code39" hri="none" font="font_a" width="2" height="60">12345678</barcode>
+            <barcode type="code39" hri="none" font="font_a" width="2" height="60">123456789</barcode>
+            <text>This in inverted text
+            </text>
+            <text>This in underlined text
+            </text>
+            <text width="2" height="2"/>
+            <text>Total:</text>
+            <text>20.55</text>
+            <text width="1" height="1"/>
+            <barcode type="qrcode" hri="none" font="font_a" width="2" height="60">http://revo.works</barcode>
+            <cut type="feed"/>
+        </epos-print>
+    </PrintData>
+</ePOSPrint>
+</PrintRequestInfo>
