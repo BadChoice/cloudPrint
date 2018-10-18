@@ -26,11 +26,13 @@ class EpsonPrintJobController extends Controller
 
     private function returnAvailableJobs($id)
     {
-        $printJobs = PrintJob::where('uuid', $id)->get();
+        $printJobs = PrintJob::pending()->where('uuid', $id)->get();
 
         if ($printJobs->count() == 0 ){
             return response("");
         }
+
+        $printJobs->each->update(["status" => PrintJob::STATUS_PRINTING]);
 
         $xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><PrintRequestInfo>" .
             $printJobs->pluck('job')->implode('') . "</PrintRequestInfo>";
@@ -52,7 +54,7 @@ class EpsonPrintJobController extends Controller
                 Log::info("success : {$response['success']} code : {$response['code']}");
             }
         }
-        PrintJob::where('uuid', $id)->delete();
+        PrintJob::printing()->where('uuid', $id)->delete();
         return response("");
     }
 }
