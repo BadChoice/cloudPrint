@@ -6,10 +6,10 @@ use App\PrintJob;
 
 class PrintJobController extends Controller
 {
-    public function store()
+    public function store($printerIdentifier = null)
     {
         $printJob = PrintJob::create([
-            "uuid" => request('uuid'),
+            "uuid" => $printerIdentifier ?? request('uuid'),
             "job" => request('job')
         ]);
         return response(["id" => $printJob->id]);
