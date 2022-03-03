@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class PrintJob extends Model
 {
     const STATUS_PENDING    = 0;
-    const STATUS_PRINTING   = 0;
-    const STATUS_PRINTED    = 1;
-    const STATUS_ERROR      = 2;
+    const STATUS_PRINTING   = 1;
+    const STATUS_PRINTED    = 2;
+    const STATUS_ERROR      = 3;
 
     protected $guarded = [];
 
