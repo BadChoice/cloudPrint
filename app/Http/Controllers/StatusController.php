@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\PrintJob;
 use Illuminate\Support\Facades\Redis;
 
 class StatusController extends Controller
