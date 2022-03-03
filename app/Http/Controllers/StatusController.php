@@ -12,12 +12,14 @@ class StatusController extends Controller
         $id = $printerIdentifier ?? request('uuid');
         $date = Redis::lpop("CloudPrinter_".$id);
         if (!$date) {
-            return response([$id => "OFFLINE"]);
+            return response(["id" => $id,
+                             "status" => "OFFLINE"]);
         }
 
         $date = Carbon::createFromFormat('Y-m-d H:i:s',$date);
         $seconds = $date->diffInSeconds(Carbon::now());
 
-        return response([$id => ($seconds < 20 ? "ONLINE" : "OFFLINE")]);
+        return response(["id" => $id,
+                         "status" => ($seconds < 20 ? "ONLINE" : "OFFLINE")]);
     }
 }
