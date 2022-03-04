@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
 
 class StatusController extends Controller
@@ -19,6 +20,7 @@ class StatusController extends Controller
 
             return response(["id" => $id, "status" => ($seconds < 20 ? "ONLINE" : "OFFLINE")]);
         } catch (\Exception $e) {
+            Log::info("Error getting printer status: ".$e->getMessage());
             return response(["id" => $id, "status" => "OFFLINE"]);
         }
     }

@@ -30,7 +30,11 @@ class EpsonPrintJobController extends Controller
 
     private function savePrinterStatus($printerId)
     {
-        Redis::set("CloudPrinter_".$printerId, Carbon::now()->toDateTimeString());
+        try {
+            Redis::set("CloudPrinter_".$printerId, Carbon::now()->toDateTimeString());
+        } catch (\Exception $e) {
+            Log::info("Error setting value to Redis: ".$e->getMessage());
+        }
     }
 
     private function returnAvailableJobs($id)
