@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\PrintJob;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redis;
 
 class EpsonPrintJobController extends Controller
 {
@@ -12,7 +14,9 @@ class EpsonPrintJobController extends Controller
     {
         $connectionType = request('ConnectionType');
         $id             = request('ID');
-        Log::info("EPSON index called {$connectionType} for ID: {$id}");
+        Log::info("EPSON print jobs called {$connectionType} for ID: {$id}");
+
+        $this->savePrinterStatus($id);
 
         if ($connectionType == 'GetRequest') {
             return $this->returnAvailableJobs($id);
@@ -22,6 +26,15 @@ class EpsonPrintJobController extends Controller
             return $this->setResponse($id);
         }
         return response("");
+    }
+
+    private function savePrinterStatus($printerId)
+    {
+        try {
+            Redis::set("CloudPrinter_".$printerId, Carbon::now()->toDateTimeString());
+        } catch (\Exception $e) {
+            Log::info("Error setting value to Redis: ".$e->getMessage());
+        }
     }
 
     private function returnAvailableJobs($id)

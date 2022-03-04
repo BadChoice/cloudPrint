@@ -7,6 +7,7 @@ Route::get('/', function () {
 });
 
 Route::post('printJobs/{printerIdentifier?}', 'PrintJobController@store');
+Route::get('printerStatus/{printerIdentifier?}', 'StatusController@get');
 
 Route::post('epson/printJobs', 'EpsonPrintJobController@index');
 
